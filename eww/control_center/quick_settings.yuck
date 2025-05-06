@@ -1,0 +1,85 @@
+(defwidget quick_settings []
+    (box :orientation "v" :class "quick_settings_box" :space-evenly true
+        (box :orientation "h" :space-evenly true
+            (do-not-disturb_mode)
+            (screenshot)
+        )
+        (box :orientation "h" :space-evenly true
+            (theme)
+            (dark_mode)
+        )
+    )
+)
+
+(defwidget quick_settings_button [condition action icon label class]
+(button
+  :onclick {action}
+  :class {
+    condition == "true" ? "quick_settings_button quick_settings_button_toggled ${class}"
+    : "quick_settings_button ${class}"
+  }
+        (box :orientation "h" :space-evenly false
+            (box :orientation "h" :space-evenly false :halign "start"
+                (label :class "quick-settings-icon" :text {icon})
+            )
+            (box :orientation "v" :class "quick-settings-info" :space-evenly false :halign "end" :valign "center"
+                (box :orientation "h" :space-evenly false :halign "start"
+                    (label :class "quick-settings-text" :text {label})
+                )
+                (box :orientation "h" :space-evenly false :halign "start"
+                   (label
+                    :class {
+                        condition == "true" ? "quick-settings-state quick-settings-state-enabled"
+                        : condition == "false" ? "quick-settings-state"
+                        : "quick-settings-state quick-settings-state-custom"
+                    }
+                    :text {
+                        condition == "true" ? "Activado"
+                        : condition == "false" ? "Desactivado"
+                        : condition
+                    }
+                    )
+                )
+            )
+        )
+    )
+)
+
+
+
+(defwidget do-not-disturb_mode []
+    (quick_settings_button  :condition {do-not-disturb == true} 
+                            :action "~/.config/scripts/eww/notifications.sh togglednd & ~/.config/scripts/eww/control_center.sh --toggle"
+                            :icon "󰍷"
+                            :label "No molestar"
+                            :class "left-top-plite"
+                            ;; :class "left-top-plite" si es que quiero que se muestre en la parte inferior
+    )
+)
+
+(defwidget screenshot []
+    (quick_settings_button  :condition "Captura de pantalla"
+                            :action "~/.config/scripts/eww/control_center.sh --toggle &  ~/.config/scripts/eww/screenshot.sh"
+                            :icon "󰄀"
+                            :label "Screenshot"
+                            :class "right-top-plite"
+    )
+)
+
+(defwidget theme []
+    (quick_settings_button  :condition "Cambia fondo o colores" 
+                            :action "~/.config/scripts/wallpapers/change_wallpaper.sh --toggle & ~/.config/scripts/eww/control_center.sh --toggle"
+                            :icon ""
+                            :label "Temas"
+                            :class "left-bottom-plite"
+    )
+)
+
+(defwidget dark_mode []
+    (quick_settings_button  :condition {dark-mode == true}
+                            :action "~/.config/scripts/eww/darkmode.sh togglemode & ~/.config/scripts/eww/control_center.sh --toggle"
+                            :icon "󰔎"
+                            :label "Modo oscuro"
+                            :class "right-bottom-plite"
+    )
+)

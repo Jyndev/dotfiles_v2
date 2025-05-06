@@ -1,0 +1,21 @@
+[config.wallpaper]
+command = "swww"
+arguments = ["img", "--transition-type", "outer", "--transition-pos", "0.854,0.977", "--transition-step", "90"]
+set = true
+
+
+[templates.waybar]
+input_path = './templates/waybar.css'
+output_path = '~/.cache/colors/waybar.css'
+
+[templates.eww]
+input_path = './templates/eww.scss'
+output_path = '~/.cache/colors/eww.scss'
+
+[templates.rofi]
+input_path = './templates/rofi.rasi'
+output_path = '~/.cache/colors/rofi.rasi'
+
+[templates.kitty]
+input_path = './templates/kitty.conf'
+output_path = '~/.cache/colors/kitty.conf'

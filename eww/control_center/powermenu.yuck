@@ -1,0 +1,35 @@
+(defwidget powermenu_entry [label icon onclick]
+    (box :orientation "v" :space-evenly false :class "powermenu-entry"
+        (button :class "powermenu-button" :onclick {onclick}
+            (label :class "powermenu-icon" :text {icon})
+        )
+        (label :class "powermenu-text" :text {label})
+    )
+)
+
+(defwidget powermenu []
+    (box :orientation "h" :space-evenly true :valign "center" :halign "center" :class "powermenu-box"
+        (powermenu_entry    :label "Apagar" 
+                            :icon "󰐥" 
+                            :onclick "systemctl poweroff")
+        (powermenu_entry    :label "Reiniciar" 
+                            :icon "󰜉" 
+                            :onclick "systemctl reboot")
+        (powermenu_entry    :label "Bloquear" 
+                            :icon "" 
+                            :onclick "sleep 0.1 && gtklock & eww close powermenu &")
+
+        (powermenu_entry    :label "Suspender" 
+                            :icon "󰤄" 
+                            :onclick "sleep 0.1 && gtklock & systemctl suspend & eww close powermenu &")
+                                
+        (powermenu_entry    :label "Cerrar sesión"
+                            :icon "󰗼" 
+                            :onclick "hyprctl dispatch exit 0")
+
+        (powermenu_entry    :label "Cancelar" 
+                            :icon "󰅖" 
+                            :onclick "eww close powermenu")
+            
+    )
+)

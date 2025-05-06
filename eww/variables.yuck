@@ -1,0 +1,42 @@
+; VARS
+
+(defvar open_osd false)
+(defvar open_launcher false)
+(defvar open_tray false)
+(defvar clipboard "[]")
+(defvar ANIM_DURATION "500ms")
+
+(defvar recorder_audio false)
+(defvar recorder_region false)
+
+; POLLS
+
+(defpoll fecha_es :interval "60s" "bash ~/.config/scripts/eww/date.sh")
+
+(defpoll cover_url :interval "1s"
+  "playerctl metadata mpris:artUrl | sed 's|file://||'")
+
+
+
+; LISTENS
+
+(deflisten network :initial '{"essid": "lo", "signal": ""}'
+"~/.config/scripts/eww/network.sh")
+
+(deflisten volume :initial "0"
+"~/.config/scripts/eww/volume.sh")
+
+(deflisten mpris :initial "{}"
+"~/.config/scripts/eww/mpris.sh")
+
+(deflisten mpris_positions :initial "{\"player\": {\"position\": 0, \"positionStr\": \"00:00\"}}"
+  "~/.config/scripts/eww/positions.sh")
+
+(deflisten do-not-disturb :initial false
+"~/.config/scripts/eww/notifications.sh getdnd")
+
+(deflisten dark-mode :initial false
+"~/.config/scripts/eww/darkmode.sh getmode")
+
+(deflisten notifications :initial '{"count": 0, "notifications": [], "popups": []}'
+"~/.config/scripts/eww/notifications.sh current")

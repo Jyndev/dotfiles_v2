@@ -1,0 +1,77 @@
+
+(defwindow control_center
+    :monitor 0
+    :stacking "overlay"
+    :geometry (geometry
+                    :anchor "bottom right"
+                    :width "470px"
+                    :height "2px"
+                )
+    :namespace "eww"
+    (control_center)
+)
+
+(defwindow notifications_popup
+    :monitor 0
+    :stacking "overlay"
+    :geometry (geometry
+                    :anchor "bottom center"
+                    :width "2px"
+                    :height "2px"
+                )
+    :namespace "eww"
+    (notifications_popup_widget)
+)
+
+
+(defwindow powermenu
+    :monitor 0
+    :stacking "overlay"
+    :geometry (geometry 
+                    :anchor "center"
+                    :width "100%"
+                    :height "120%")
+    :namespace "eww-blur"
+    (powermenu)
+)
+
+
+(defwindow tray
+    :monitor 0
+    :stacking "overlay"
+    :geometry (geometry 
+                    :anchor "bottom left"
+                    :width "2px"
+                    :height "2px"
+                    :x "82%"
+                )
+    :namespace "eww"
+    (tray)
+)
+
+(defwindow music_waybar
+    :monitor 0
+    :stacking "fg"
+    :geometry (geometry 
+                   :anchor "top center"
+                    :x "0"
+                    :y "1%"
+                )
+    :namespace "eww"
+    (music_pop)
+)
+
+(defwidget activate-linux []
+  (box
+    :orientation "v"
+    :halign "start"
+    :valign "start"
+    (label :xalign 0 :markup "<span font_size=\"large\">Activar Linux</span>")
+    (label :xalign 0 :text "La libertad no necesita licencia.")
+    ))
+
+(defwindow activate-linux
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :x "8px" :y "32px" :width "250px" :anchor "bottom right")
+  (activate-linux))

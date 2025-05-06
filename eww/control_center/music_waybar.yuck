@@ -1,0 +1,12 @@
+(defwidget music_pop []
+		(box :class "music_pop" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false"
+			(box :class "music_cover_art" :vexpand "false" :hexpand "false" :style "background-image: url('${cover_url}');")
+			(box :orientation "v" :spacing 1 :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :halign "center" :class "music_p" :wrap "true" :limit-width 10 :text {mpris.title})
+				(label :halign "center" :class "music_artist" :wrap "true" :limit-width 15 :text {mpris.artist})
+				(box :orientation "h" :spacing 15 :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                    (button :class "music_btn_prev" :onclick "playerctl previous" "󰒮")
+                    (button :class "music_btn_play" :onclick "playerctl play-pause" {mpris.status == "Playing" ? "" : "󰐊"})
+                    (button :class "music_btn_next" :onclick "playerctl next" "󰒭")
+                )
+                    )))

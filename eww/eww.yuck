@@ -1,0 +1,14 @@
+(include "variables.yuck")
+(include "windows.yuck")
+
+
+(include "control_center/notifications_popup.yuck")
+(include "control_center/control_center.yuck")
+
+(include "control_center/volume.yuck")
+(include "control_center/quick_settings.yuck")
+(include "control_center/notifications.yuck")
+(include "control_center/powermenu.yuck")
+(include "control_center/music.yuck")
+(include "control_center/user.yuck")
+(include "control_center/music_waybar.yuck")

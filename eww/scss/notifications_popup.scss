@@ -1,0 +1,7 @@
+.notifications-popup-body {
+    @include window;
+    min-width: 29rem;
+    background-color: $primary_container;
+    color: $on_primary_container;
+    padding: 0rem;
+}

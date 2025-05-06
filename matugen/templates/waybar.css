@@ -1,0 +1,8 @@
+/*
+* Css Colors for waybar
+* Generated with Matugen
+*/
+    @define-color background-rgba {{colors.background.default.rgba | set_alpha: 0.5}};
+<* for name, value in colors *>
+    @define-color {{name}} {{value.default.hex}};
+<* endfor *>

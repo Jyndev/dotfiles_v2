@@ -1,0 +1,22 @@
+* {
+    all: unset;
+    font-family: "Nunito", "Nerd Font";
+    font-weight: bold;
+}
+@import "../../.cache/colors/eww.scss";
+
+@import "scss/lib.scss";
+@import "scss/powermenu.scss";
+
+@import "scss/control_center.scss";
+@import "scss/notifications_popup.scss";
+
+@import "scss/quick_settings.scss";
+@import "scss/user.scss";
+@import "scss/volume.scss";
+@import "scss/music.scss";
+@import "scss/notifications.scss";
+@import "scss/music_waybar.scss";
+
+@import "scss/activate_linux.scss";
+

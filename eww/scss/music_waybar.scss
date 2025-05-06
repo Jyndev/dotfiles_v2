@@ -1,0 +1,55 @@
+.music_pop {
+    background-color: $surface;
+	border-radius: 16px;
+	min-width: 500px;
+	padding-bottom: .6rem;
+	
+
+
+}
+  .music_cover_art {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		min-height: 4rem;
+		min-width: 8rem;
+		border-radius: 1rem;
+		margin: 10px;
+}
+
+.music_p {
+	color: #a1bdce;
+	font-size : 19px;
+	font-weight : bold;
+	min-width: 17rem;
+	margin : 10px 0px 0px -5px;
+}
+
+.music_artist {
+	color: #bbc5d7;
+	font-size : 16px;
+	font-weight : normal;
+	margin : 0px 0px 0px 0px;
+}
+
+.music_btn_prev, .music_btn_play, .music_btn_next {
+	font-family: Iosevka Nerd Font;
+}
+.music_btn_prev {
+	color: #bbc5d7;
+	font-size : 32px;
+	font-weight : normal;
+	margin: 0px 0px 0px 0px;
+}
+.music_btn_play {
+	color: #a1bdce;
+	font-size : 32px;
+	font-weight : normal;
+	margin: 0px 0px 0px 0px;
+}
+.music_btn_next {
+	color: #bbc5d7;
+	font-size : 32px;
+	font-weight : normal;
+	margin: 0px 0px 0px 0px;
+}
