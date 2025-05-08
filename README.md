@@ -14,7 +14,7 @@
 
 
 <a href="#">
-    <img src="assets/logo/rikka.png" alt="JynLogo logo" title="JynDev" align="right" height="70" />
+    <img src="assets/logo/rikka.png" alt="JynLogo logo" title="JynDev" align="right" height="40" />
 </a>
 
 # Dotfiles - Takanashi Version 🌠
