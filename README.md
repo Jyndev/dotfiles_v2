@@ -8,6 +8,15 @@
 
 <p align="center">
   <i align="center">"No es solo un entorno, es tu reflejo. ¿Te animas a moldearlo? 💜" - Jyn</i>
+  <br>
+  Mis redes sociales:
+  <br>
+  <a href="https://www.tiktok.com/@jyndev">
+      <img src="https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white" /> 
+   </a>
+   <a href="https://discord.gg/Khkbk4FjsA">
+        <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" />  
+   </a>
 </p>
 
 <img align="center" src="assets/gifs/demo.gif" alt="JynDev"></img>
@@ -92,12 +101,15 @@ Antes de copiar los archivos de configuración, instala los paquetes necesarios.
    sudo pacman -S --needed base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
    ```
 4. **🔃 Reinicia el sistema**
-5. Instalar **Oh My ZSH** y configurar plugins:
+5. Instalar **Oh My ZSH** y configurar plugins (Buscalos y sigue su documentación para instalarlos):
    - **Plugins recomendados:**
      - `zsh-autosuggestions`
      - `zsh-syntax-highlighting`
      - `zsh-history-substring-search`
-   - Edita el archivo `~/.zshrc` para agregarlos.
+   - Edita el archivo `~/.zshrc` para agregarlos
+   ```bash
+   plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
+   ```
 6. Instalar **Powerlevel10k** para mejorar el estilo de la terminal.
 
 ### 🏎️ Alias Útiles para `.zshrc`
@@ -108,8 +120,6 @@ alias aur_install="yay -S"
 alias update="sudo pacman -Syu"
 alias purge="sudo pacman -Rns"
 ```
-
----
 
 ## 🧰 Paquetes necesarios 
 
@@ -164,7 +174,7 @@ install noto-fonts
 Debes inicializar los colores de **pywal** para evitar errores al reiniciar:
 
 ```bash
-wal --cols16 -i "ruta_absoluta_de_tu_imagen"
+matugen image "ruta_a_la_imagen"
 ```
 
 ---
