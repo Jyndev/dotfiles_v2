@@ -86,6 +86,8 @@ Si tienes dudas o algún problema con estas configuraciones, puedes escribirme p
 
 Antes de copiar los archivos de configuración, instala los paquetes necesarios.
 
+### ⚠️ Elimina cualquier demonio o gestor de notificaciones que tengas instalados, esto por que estos archivos contienen su propio demonio de notificaciones.
+
 ### ⚙️ Configuración de la Terminal
 
 1. Instalar los siguientes paquetes básicos:
