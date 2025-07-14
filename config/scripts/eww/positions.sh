@@ -1,16 +1,18 @@
 #!/bin/bash
 
-playerctl metadata -F -f '{{position}} {{mpris:length}}' | while read -r line; do
-    position=$(playerctl metadata -f "{{position / 1000000}}")
-    position=$(echo "($position + 0.5) / 1" | bc)
-    positionStr=$(playerctl metadata -f "{{duration(position)}}")
-    player=$(playerctl metadata -f "{{playerName}}")
-    JSON_STRING=$( jq -n \
-                --arg position "$position" \
-                --arg length "$length" \
-                --arg positionStr "$positionStr" \
-                --arg player "$player" \
-                '{$player: {position: $position, positionStr: $positionStr}}' )
-    echo $JSON_STRING
+playerctl --follow metadata --format '{{position}} {{mpris:length}} {{playerName}}' | while read -r position length player; do
+    # Convierte posición de nanosegundos a segundos
+    position_sec=$(echo "($position + 500000) / 1000000" | bc)
 
+    # Convierte a formato MM:SS
+    mins=$((position_sec / 60))
+    secs=$((position_sec % 60))
+    positionStr=$(printf "%02d:%02d" $mins $secs)
+
+    # Genera JSON en una sola línea
+    jq -c -n \
+      --arg position $position_sec \
+      --arg positionStr "$positionStr" \
+      --arg player "$player" \
+      '{current: {position: $position, positionStr: $positionStr}}'
 done

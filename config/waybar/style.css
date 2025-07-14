@@ -7,18 +7,18 @@
     border: none;
     border-radius: 0px;
     font-family: "Nunito", "Nerd Font";
-    font-size: 13px;
+    font-size: 11px;
     min-height: 0;
 }
 
 /*------------Window--------------------*/
 #window{
     background: @surface;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 16px;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-weight: normal;
     font-style: normal;
 }
@@ -43,13 +43,13 @@ tooltip label {
 #workspaces {
     background: @surface;
     margin: 5px 5px;
-    padding: 8px 5px;
+    padding: 5px 3px;
     border-radius: 16px;
     color: @on_surface;
 }
 #workspaces button {
     font-weight: bold;
-    padding: 0px 5px;
+    padding: 0px 2px;
     margin: 0px 3px;
     border-radius: 16px;
     color: transparent;
@@ -62,7 +62,7 @@ tooltip label {
     background-color: @primary;
     color: @scrim;
     border-radius: 16px;
-    min-width: 50px;
+    min-width: 40px;
     background-size: 400% 400%;
     transition: all 0.3s ease-in-out;
 }
@@ -72,7 +72,7 @@ tooltip label {
     background-color: @tertiary;
     color: @scrim;
     border-radius: 16px;
-    min-width: 50px;
+    min-width: 40px;
     background-size: 400% 400%;
 }
 
@@ -101,13 +101,17 @@ tooltip label {
     margin-left: 7px;
 }
 
+#network {
+    margin-right: 8px;
+}
+
 #custom-control_center {
     color: @on_tertiary_container;
     background: @surface;
     border-radius: 0px 0px 0px 40px;
     padding: 0px 15px 0px 22px;
-    margin: 0px 0px 0px 5px;
-    font-size: 28px;
+    margin: 0px 0px 0px 2px;
+    font-size: 20px;
 }
 
 
@@ -160,9 +164,9 @@ tooltip label {
 #custom-launcher {
     color: @on_tertiary_container;
     background: @surface;
-    margin: 0px 5px 0px 0px;
-    padding: 0px 35px 0px 15px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 25px 4px 10px;
     border-radius: 0px 0px 40px 0px;
-    font-size: 28px;
+    font-size: 24px;
 }
 

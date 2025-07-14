@@ -173,7 +173,7 @@ install noto-fonts
 
 ## ⚠️ Primer Arranque
 
-Debes inicializar los colores de **pywal** para evitar errores al reiniciar:
+Debes inicializar los colores de **matugen** para evitar errores al reiniciar:
 
 ```bash
 matugen image "ruta_a_la_imagen"

@@ -88,16 +88,25 @@ class NotificationDaemon(dbus.service.Object):
 
 
     def format_long_string(self, long_string, has_image, interval_with_image, interval_without_image):
-        # Eliminar caracteres especiales excepto letras, números, espacios y saltos de línea
-        cleaned_string = re.sub(r"[^\w\s\n]", "", long_string)
+        # Detectar si se debe evitar limpiar el texto
+        skip_cleaning = False
+        raw_marker = "#raw"
+
+        if raw_marker in long_string:
+            skip_cleaning = True
+            long_string = long_string.replace(raw_marker, "").strip()  # quitar marcador del texto
 
         # Elegir el intervalo según si hay imagen
         interval = interval_with_image if has_image else interval_without_image
         split_string = []
-        max_length = 256
 
-        for i in range(0, len(cleaned_string), interval):
-            split_string.append(cleaned_string[i:i+interval])
+        # Si no se salta limpieza, limpiar caracteres especiales
+        if not skip_cleaning:
+            long_string = re.sub(r"[^\w\s\n]", "", long_string)
+
+        max_length = 256
+        for i in range(0, len(long_string), interval):
+            split_string.append(long_string[i:i+interval])
 
         result = "-\n".join(split_string)
 

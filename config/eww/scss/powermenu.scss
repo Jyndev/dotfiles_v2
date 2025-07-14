@@ -1,9 +1,22 @@
+
 .powermenu-box {
-    @include window;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+
+    background-color: rgba($surface_dim, 0.8);
+    font-size: 1rem;
+    box-shadow: 0 0 0 0px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+
+
+}
+.power {
+    font-size: 2rem;
 }
 
 .powermenu-entry {
@@ -11,21 +24,44 @@
 }
 
 .powermenu-button {
-    background-color: $surface_variant;
-    border-radius: 1rem;
     transition: 0.3s;
-    padding: 3.25rem 4rem;
+    padding: 1.2rem 2.9rem;
+    border-radius: 10rem;
+    background-color: $on_secondary;
+    color: $inverse_surface;
 }
 
 .powermenu-button:hover {
-    background-color: mix($surface_variant, $on_surface_variant, 70%);
+    background-color: $on_primary_fixed_variant;
+    color: $surface;
+
+
+
+    
 }
 
 .powermenu-icon {
-    font-size: 4rem;
+    font-size: 5rem;
+    margin-right: 0.5rem;
 }
 
 .powermenu-text {
     margin-top: 0.5rem;
     font-size: 1.3rem;
+    color: white;
 }
+
+  .powercorner {
+    background-color: transparent;
+    padding: 100px;
+    border-radius: 100%;
+  
+    &.left {
+      box-shadow: 95px -95px 0px 0px  rgba($surface_dim, 0.8);
+    }
+  
+    &.right {
+      box-shadow: -95px -95px 0px 0px  rgba($surface_dim, 0.8);
+    }
+}
+

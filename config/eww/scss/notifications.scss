@@ -1,11 +1,13 @@
 .notifications-center {
     @include window;
+    border-radius: 18px 40px 10px 57px;
 }
 
 .notification-box {
     background-color: $primary_container;
     color: $on_primary_container;
-    border-radius: 1rem;
+    border-radius: 40px 24px 40px 24px;
+
     margin-top: 0.5rem;
 }
 
@@ -40,7 +42,7 @@
 }
 
 .notifications-scroll {
-    min-height: 18rem;
+    min-height: 15rem;
     margin-top: 1rem;
 }
 

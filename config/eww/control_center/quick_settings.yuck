@@ -1,5 +1,22 @@
 (defwidget quick_settings []
-    (box :orientation "v" :class "quick_settings_box" :space-evenly true
+    
+    (box :orientation "v" :class "quick_settings_box" :space-evenly false
+
+        (box :orientation "h" :space-evenly true :class "title_settings_box"
+            (box :orientation "h" :space-evenly false :halign "start"
+                (label :class "title-quick-settings" :text " Acceso rápido")
+            )
+
+            (box :orientation "h" :space-evenly false :halign "end"
+                (label :class "user-clock-time" :text {formattime(EWW_TIME, "%I:%M %p")})
+                (label :class "user-clock-separator" :text "|")
+                (label :class "user-clock-date" :text {fecha_es})
+            )
+        )
+
+
+
+
         (box :orientation "h" :space-evenly true
             (do-not-disturb_mode)
             (screenshot)

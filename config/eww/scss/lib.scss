@@ -1,8 +1,8 @@
 @mixin window {
-    background-color: rgba($surface, 0.8);
+    background-color: rgba($surface_dim, 0.8);
     border-radius: 1rem;
     padding: 1rem;
     color: $on_surface;
     box-shadow: 0 0 0px 0px $shadow;
-    margin: 1rem;
+    margin: .4rem;
 }

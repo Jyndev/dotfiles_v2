@@ -28,9 +28,9 @@ change_video() {
     echo "METHOD=video" > $ARCHIVO_CONFIGURACION
     
     pkill waybar
-    eww reload
     change_color "$HOME/.cache/liveWallpaper/wall-video.jpg" 
     nohup mpvpaper -o "--loop-file=inf" '*' ~/.cache/liveWallpaper/wallpaper.mp4 > /dev/null 2>&1 & disown
+    eww reload
     waybar &
 
     notify "Se ha cambiado a un fondo de pantalla con video"
