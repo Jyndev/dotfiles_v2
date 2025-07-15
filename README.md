@@ -128,7 +128,7 @@ alias purge="sudo pacman -Rns"
 ```bash
 install gnome-tweaks swww fastfetch rofi-wayland nemo cinnamon-translations \
 waybar ttf-jetbrains-mono-nerd zenity bc eog gnome-system-monitor evince \
-xdg-desktop-portal-hyprland xdg-desktop-portal-gtk ffmpeg
+xdg-desktop-portal-hyprland xdg-desktop-portal-gtk ffmpeg ttf-nunito nemo-fileroller
 ```
 
 ```bash
