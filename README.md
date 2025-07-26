@@ -132,7 +132,7 @@ xdg-desktop-portal-hyprland xdg-desktop-portal-gtk ffmpeg ttf-nunito nemo-filero
 ```
 
 ```bash
-aur_install hyprshot visual-studio-code-bin mpvpaper eww matugen-bin
+aur_install hyprshot visual-studio-code-bin mpvpaper eww matugen-bin ttf-fredoka-one
 ```
 
 ### 🎵 Música
@@ -148,7 +148,7 @@ aur_install spotify-adblock # Bloquear publicidad
 
 - 🏙️ **Iconos:** `Magna-Dark-Icons`
 - 🖍️ **Tema GTK:** `Lavanda-gtk-theme`
-- 🗚 **Fuente:** `Century Gothic`
+- 🗚 **Fuente:** `Fredoka`
 - 🖱️ **Cursor:** `Anya-cursor-v3`
 
 ### 📄 Fuentes Adicionales (Japonés)
