@@ -28,4 +28,3 @@ playerctl metadata -F -f '{{playerName}} {{title}} {{artist}} {{mpris:artUrl}} {
                 '{name: $name, title: $title, artist: $artist, artUrl: $artUrl, status: $status, length: $length, lengthStr: $lengthStr}' )
     echo $JSON_STRING
 done
-
