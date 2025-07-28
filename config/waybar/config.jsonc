@@ -58,7 +58,7 @@
 	"custom/launcher": {
 		"format": "󰅩",
 		"tooltip": false,
-		"on-click": "~/.config/rofi/scripts/sidelauncher"
+		"on-click": "~/.config/scripts/eww/monitor_center.sh --toggle"
 	},
 
 
