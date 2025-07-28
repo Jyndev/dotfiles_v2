@@ -1,0 +1,8 @@
+(defwidget footer []
+  	(box :class "footer"
+       :space-evenly false
+       :orientation "h"
+       :halign "center"
+	   (label :text "-By: JynDev 󰄛" :class "placeholder")
+  	)
+)

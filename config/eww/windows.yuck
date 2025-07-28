@@ -15,7 +15,7 @@
     :monitor 0
     :stacking "overlay"
     :geometry (geometry
-                    :anchor "top left"
+                    :anchor "top center"
                     :width "2px"
                     :height "2px"
                 )

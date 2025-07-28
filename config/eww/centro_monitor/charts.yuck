@@ -1,0 +1,62 @@
+(defwidget chart [label value icon icon-class]
+  (box :class "chart-container"
+       :orientation "v"
+       :space-evenly false
+    (box :class "header"
+         :space-evenly true
+         :orientation "v"
+      (label :text "${label}" :class "label-title" :halign "start")
+    )
+    (box :class "body"
+         :space-evenly true
+         :orientation "h"
+      (box :class "container"
+           :space-evenly true
+           :halign "center"
+           :hexpand true
+           :orientation "h"
+        (box :class "chart-container" :space-evenly false
+          (overlay
+            (circular-progress :value value
+                               :thickness 50
+                               :class "chart"
+                               :start-at 75
+              (label :text "L")
+            )
+            (label :text "${icon}" :class "chart-icon ${icon-class}")
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget charts []
+  
+  (box :class "chartsbox"
+       :orientation "v"
+       :space-evenly false
+       :spacing 7
+	   (box :class "headers"
+         :space-evenly true
+         :orientation "v"
+		 :spacing 0
+      (label :text "Monitor de sistema" :class "label-title" :halign "start")
+    )
+    (box :class "firstrow"
+         :orientation "h"
+         :space-evenly true
+         :spacing 7
+		 
+      (chart :label "Procesador" :icon "" :icon-class "cpu" :value cpu)
+      (chart :label "Ram" :icon "" :icon-class "ram" :value ram)
+    )
+    (box :class "lastrow"
+         :orientation "h"
+         :space-evenly true
+         :spacing 7
+      (chart :label "Temperatura" :icon "󰏈" :icon-class "temp" :value temp)
+      (chart :label "Uso de disco" :icon "󰋊" :icon-class "disk" :value disk)
+    )
+  )
+)

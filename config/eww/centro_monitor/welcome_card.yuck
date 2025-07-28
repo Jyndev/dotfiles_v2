@@ -1,0 +1,25 @@
+(defwidget welcomecard []
+  (box :class "usercard"
+       :orientation "v"
+       :space-evenly false
+    (box :class "user-content"
+         :orientation "h"
+         :space-evenly false
+         :vexpand true
+         :spacing 15
+      (box :class "pfp"
+           :style "background-image: url('centro_monitor/icon/user.png');")
+      (box :class "info"
+           :hexpand true
+           :vexpand true
+           :valign "center"
+           :halign "start"
+           :orientation "v"
+           :space-evenly false
+           :spacing 3
+        (label :text "${username}@${hostname}" :class "username" :halign "start")
+        (label :text "Bienvenido al centro de monitoreo" :class "hostname")
+      )
+    )
+  )
+)

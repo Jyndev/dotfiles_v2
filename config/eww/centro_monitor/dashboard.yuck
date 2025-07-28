@@ -1,0 +1,25 @@
+(include "centro_monitor/welcome_card.yuck")
+(include "centro_monitor/charts.yuck")
+(include "centro_monitor/footer.yuck")
+
+
+(defwidget dashboard []
+  (box :class "dashboardbox"
+       :orientation "v"
+       :space-evenly false
+	   :spacing 10
+	(welcomecard)
+	(charts)
+	(footer)
+  )
+)
+
+(defwindow dashboard
+  :monitor 0
+  :geometry (geometry :x "6px"
+                      :y "0px"
+                      :width "350px" ; automatically adjusted by eww
+                      :height "10px" ; automatically adjusted by eww
+                      :anchor "top left")
+  :wm-ignore false
+(dashboard))

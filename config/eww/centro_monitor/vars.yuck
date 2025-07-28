@@ -1,0 +1,7 @@
+(defpoll username :interval "30s" "~/.config/eww/centro_monitor/scripts/user.sh")
+(defpoll hostname :interval "30s" "cat /etc/hostname")
+
+(defpoll cpu :interval "3s" "~/.config/eww/centro_monitor/scripts/cpu.sh")
+(defpoll ram :interval "3s" "~/.config/eww/centro_monitor/scripts/ram.sh ram")
+(defpoll temp :interval "3s" "~/.config/eww/centro_monitor/scripts/temp.sh get")
+(defpoll disk :interval "3s" "~/.config/eww/centro_monitor/scripts/disk.sh")

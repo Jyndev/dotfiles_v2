@@ -4,7 +4,7 @@
         (box :orientation "h" :space-evenly false :halign "start"
             (box :orientation "h" :space-evenly false :class "user-image")
                 (box :orientation "v" :space-evenly false 
-                    (label :class "title-quick-settings" :halign "start" :text {user-greeting})
+                    (label :class "title-quick-settings" :halign "start" :text " Hola, ${rawuser} 󱁤")
                     (label :class "title-uptime-settings" :text {uptime} :halign "start")
                 )
         )
