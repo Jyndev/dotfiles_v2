@@ -48,15 +48,15 @@
          :space-evenly true
          :spacing 7
 		 
-      (chart :label "Procesador" :icon "" :icon-class "cpu" :value cpu)
-      (chart :label "Ram" :icon "" :icon-class "ram" :value ram)
+      (chart :label "Procesador - ${cpu}%" :icon "" :icon-class "cpu" :value cpu)
+      (chart :label "Ram - ${ram}%" :icon "" :icon-class "ram" :value ram)
     )
     (box :class "lastrow"
          :orientation "h"
          :space-evenly true
          :spacing 7
-      (chart :label "Temperatura" :icon "󰏈" :icon-class "temp" :value temp)
-      (chart :label "Uso de disco" :icon "󰋊" :icon-class "disk" :value disk)
+      (chart :label "Temperatura - ${temp}°C" :icon "󰏈" :icon-class "temp" :value temp)
+      (chart :label "Uso de disco - ${disk}%" :icon "󰋊" :icon-class "disk" :value disk)
     )
   )
 )
