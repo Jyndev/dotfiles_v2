@@ -56,7 +56,7 @@
 
 	/*---------------Launcher-------------*/
 	"custom/launcher": {
-		"format": "󰅩",
+		"format": "󰊚",
 		"tooltip": false,
 		"on-click": "~/.config/scripts/eww/monitor_center.sh --toggle"
 	},
