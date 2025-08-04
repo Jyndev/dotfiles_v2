@@ -4,6 +4,7 @@
 
 
 (defwidget dashboard []
+(revealer :transition "slidedown" :reveal {show_monitor} :duration {ANIM_DURATION}
   (box :class "dashboardbox"
        :orientation "v"
        :space-evenly false
@@ -12,6 +13,7 @@
 	(charts)
 	(footer)
   )
+)
 )
 
 (defwindow dashboard
