@@ -9,7 +9,7 @@ change_wallpaper_color() {
     fi
 
     local image
-    image=$(select_file "Selecciona una imagen" "Imágenes" "*.png *.jpg *.jpeg")
+    image=$(select_file "Selecciona una imagen" "Imágenes" "*.png *.jpg *.jpeg *.gif")
 
     if [ "$image" == '' ]
     then
