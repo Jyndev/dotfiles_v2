@@ -22,6 +22,9 @@ log_file = f"{os.getenv('HOME')}/.cache/notifications.json"
 os.makedirs(cache_dir, exist_ok=True)
 active_popups = {}
 
+# Ruta global del sonido
+sound_file = f"{os.getenv('HOME')}/.config/sounds/notify.mp3"
+
 # RECIEVE NOTIFICATIONS
 
 class NotificationDaemon(dbus.service.Object):
@@ -67,7 +70,6 @@ class NotificationDaemon(dbus.service.Object):
             "actions": acts
         }
 
-
         if app_icon.strip():
             if os.path.isfile(app_icon) or app_icon.startswith("file://"):
                 details["image"] = app_icon
@@ -83,37 +85,37 @@ class NotificationDaemon(dbus.service.Object):
         self.save_notifications(details)
         if not self.dnd:
             self.save_popup(details)
+            self.play_sound()  # 🔊 reproducir sonido al recibir notificación
         return id
 
-
+    def play_sound(self):
+        if os.path.isfile(sound_file):
+            try:
+                subprocess.Popen(["paplay", sound_file])
+            except FileNotFoundError:
+                print("⚠️ paplay no está instalado o disponible en el sistema.")
 
     def format_long_string(self, long_string, has_image, interval_with_image, interval_without_image):
         # Detectar si se debe evitar limpiar el texto
-        skip_cleaning = False
         raw_marker = "#raw"
+        skip_cleaning = raw_marker in long_string
 
-        if raw_marker in long_string:
-            skip_cleaning = True
-            long_string = long_string.replace(raw_marker, "").strip()  # quitar marcador del texto
+        if skip_cleaning:
+            long_string = long_string.replace(raw_marker, "").strip()
+            return long_string
 
-        # Elegir el intervalo según si hay imagen
         interval = interval_with_image if has_image else interval_without_image
-        split_string = []
+        long_string = re.sub(r"[^\w\s\n]", "", long_string)
 
-        # Si no se salta limpieza, limpiar caracteres especiales
-        if not skip_cleaning:
-            long_string = re.sub(r"[^\w\s\n]", "", long_string)
-
-        max_length = 256
-        for i in range(0, len(long_string), interval):
-            split_string.append(long_string[i:i+interval])
-
+        split_string = [long_string[i:i+interval] for i in range(0, len(long_string), interval)]
         result = "-\n".join(split_string)
 
-        if len(result) > max_length:
-            result = result[:max_length] + "..."
+        if len(result) > 256:
+            result = result[:256] + "..."
 
         return result
+
+    # ... 🔽 resto del código sin cambios ...
 
 
     @dbus.service.method("org.freedesktop.Notifications", in_signature="", out_signature="ssss")

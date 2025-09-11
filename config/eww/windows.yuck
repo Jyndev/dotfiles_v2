@@ -11,6 +11,18 @@
     (control_center)
 )
 
+(defwindow notification_panel
+    :monitor 0
+    :stacking "overlay"
+    :geometry (geometry
+                    :anchor "bottom right"
+                    :width "470px"
+                    :height "2px"
+                )
+    :namespace "eww"
+    (notifications)
+)
+
 (defwindow notifications_popup
     :monitor 0
     :stacking "overlay"

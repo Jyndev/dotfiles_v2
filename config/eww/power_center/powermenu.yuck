@@ -13,26 +13,26 @@
 
     (powermenu_entry :label "Power off" 
                      :icon "󰤆" 
-                     :onclick "sh ~/.config/eww/scripts/powervalidate.sh poweroff &")
+                     :onclick "sh ~/.config/scripts/eww/power_menu/powervalidate.sh poweroff &")
 
     (powermenu_entry :label "Reboot" 
                      :icon "" 
-                     :onclick "sh ~/.config/eww/scripts/powervalidate.sh reboot &")
+                     :onclick "sh ~/.config/scripts/eww/power_menu/powervalidate.sh reboot &")
 
     (powermenu_entry :label "Lock" 
                      :icon "󰌾" 
-                     :onclick "sh ~/.config/eww/scripts/powervalidate.sh lock &")
+                     :onclick "sh ~/.config/scripts/eww/power_menu/powervalidate.sh lock &")
 
     (powermenu_entry :label "Suspend" 
                      :icon "󰤄" 
-                     :onclick "sh ~/.config/eww/scripts/powervalidate.sh suspend &")
+                     :onclick "sh ~/.config/scripts/eww/power_menu/powervalidate.sh suspend &")
 
     (powermenu_entry :label "Sign out" 
                      :icon "󰗼" 
-                     :onclick "sh ~/.config/eww/scripts/powervalidate.sh logout &")
+                     :onclick "sh ~/.config/scripts/eww/power_menu/powervalidate.sh logout &")
 
     (powermenu_entry :label "Cancel" 
                      :icon "󰅖" 
-                     :onclick "sh ~/.config/eww/scripts/powervalidate.sh &")
+                     :onclick "sh ~/.config/scripts/eww/power_menu/powervalidate.sh &")
   )
 )

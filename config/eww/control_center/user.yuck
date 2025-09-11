@@ -10,7 +10,7 @@
         )
 
         (box :orientation "h" :space-evenly false :halign "end"
-            (button :class "open-powermenu-button" :onclick "~/.config/eww/scripts/powermenu.sh &" "󰐥")
+            (button :class "open-powermenu-button" :onclick "~/.config/scripts/eww/power_menu/powermenu.sh &" "󰐥")
             (button :class "open-server-button" :onclick "~/.config/scripts/server/server.sh &" "󰒍")
         )
         

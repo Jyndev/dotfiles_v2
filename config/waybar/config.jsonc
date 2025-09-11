@@ -21,10 +21,9 @@
 
 	/*----------Modules Left----------------*/
 	"modules-left": [
-		"custom/launcher",
-		"network",
+		//"custom/launcher",
+		"network"
 		
-		"custom/playerlabel"
 	],
 	/*----------Modules Center--------------*/
 	"modules-center": [
@@ -38,6 +37,7 @@
 		"pulseaudio",
 		/*"network",*/
 		"clock",
+		"custom/notification",
 		"custom/control_center"
 	],
 
@@ -58,7 +58,7 @@
 	"custom/launcher": {
 		"format": "󰊚",
 		"tooltip": false,
-		"on-click": "~/.config/scripts/eww/monitor_center.sh --toggle"
+		"on-click": "~/.config/scripts/eww/toggle_panels/monitor_center.sh --toggle"
 	},
 
 
@@ -188,8 +188,15 @@
 
 	"custom/control_center": {
         "format": "",
-        "on-click": "~/.config/scripts/eww/control_center.sh --toggle",
+        "on-click": "~/.config/scripts/eww/toggle_panels/control_center.sh --toggle",
+        "tooltip": false
+    },
+
+	"custom/notification":{
+        "format": "󰂚<span><sup>{}</sup></span>",
+        "exec": "~/.config/scripts/waybar/script.sh",
+        "on-click": "~/.config/scripts/eww/toggle_panels/notifications_panel.sh --toggle",
+        "interval": 2,
         "tooltip": false
     }
-
- }
+}

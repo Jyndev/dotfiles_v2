@@ -25,7 +25,8 @@
 
 /*----------Waybar Window------------*/
 window#waybar {
-    background: @background-rgba;
+    /*background: @background-rgba; */
+    background: rgba(0, 0, 0, 0);
 }
 
 /*-----------Tooltip--------------*/
@@ -89,12 +90,12 @@ tooltip label {
 
 /*---------------Tray, Clock, Playerctl, Battery, Cpu, Temperature, Colorpicker, Memory, Idle_inhibitor----------------------*/
 #tray, #pulseaudio, #network, #battery, #cpu, #temperature, #custom-colorpicker, #memory, #custom-pacman, #idle_inhibitor,
-#custom-playerctl.backward, #clock, #custom-playerctl.play, #custom-playerctl.foward{
+#custom-playerctl.backward, #custom-notification, #clock, #custom-playerctl.play, #custom-playerctl.foward{
     background: @surface;
     font-weight: bold;
     margin: 5px 0px;
 }
-#tray, #pulseaudio, #network, #battery, #clock{
+#tray, #pulseaudio, #network, #battery, #clock, #custom-notification {
     color: @on_surface;
     border-radius: 10px 24px 10px 24px;
     padding: 0 20px;
@@ -116,6 +117,8 @@ tooltip label {
 
 
 
+
+
 #tray menu * {
     padding: 0px 5px;
     transition: all .3s ease; 
@@ -124,6 +127,14 @@ tooltip label {
 #tray menu separator {
     padding: 0px 5px;
     transition: all .3s ease; 
+}
+
+#custom-notification {
+    font-size: 14px;
+}
+
+#custom-notification sup {
+    font-size: 20px;
 }
 
 

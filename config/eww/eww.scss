@@ -17,4 +17,65 @@
 @import "scss/music.scss";
 @import "scss/notifications.scss";
 
-@import "centro_monitor/scss/dashboard.scss";
+.sysbuttonsbox {
+	@include window;
+	border-radius: 18px 40px 10px 57px;
+
+
+
+	.block-container {
+		.block {
+			background-color: $surface_container;
+			padding: 10px 6px;
+			border-radius: 7px;
+			transition: all ease .2s;
+			color: $on_surface;
+
+			&:hover {
+				background-color: mix($surface_variant, $on_surface_variant, 70%);
+			}
+
+			&:active {
+				background-color: $on_primary_fixed_variant;
+			}
+
+			&.active {
+				background-color: $on_primary_fixed_variant;
+
+				&:hover {
+					background-color: mix($surface_variant, $on_surface_variant, 70%);
+				}
+
+				&:active {
+					background-color: $inverse_surface;
+				}
+
+				.sepbox .sep {
+					background-color: $inverse_surface;
+				}
+			}
+
+			.iconbox .icon {
+				font-family: Iosevka Nerd Font;
+				padding: 0px 17px 0px 8px;
+			}
+
+			.sepbox .sep {
+				background-color: black;
+				margin: 0px 4px;
+				padding: 0px 1px;
+			}
+
+			.chevronbox {
+				font-family: Iosevka Nerd Font;
+				padding: 0px 12px;
+			}
+		}
+
+		.label {
+			font-family: "Fredoka";
+			font-size: 14px;
+		}
+	}
+}
+@import "scss/charts.scss";

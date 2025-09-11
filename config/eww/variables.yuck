@@ -1,26 +1,36 @@
-; VARS
-
-(defvar open_osd false)
-(defvar open_tray false)
 (defvar ANIM_DURATION "500ms")
 (defpoll rawuser :interval "30s" "whoami")
+(defvar open_osd false)
+
 
 (defvar show_monitor false)
 (defvar show_control_center false)
+(defvar show_panel_notifications false)
+
+(defpoll username :interval "30s" "~/.config/scripts/eww/user_card/get_username.sh")
+(defpoll hostname :interval "30s" "cat /etc/hostname")
+
+(defpoll cpu :interval "3s" "~/.config/scripts/eww/charts/cpu.sh")
+(defpoll ram :interval "3s" "~/.config/scripts/eww/charts/ram.sh ram")
+(defpoll temp :interval "3s" "~/.config/scripts/eww/charts/temp.sh get")
 
 ; POLLS
-(defpoll fecha_es :interval "60s" "~/.config/scripts/eww/date.sh")
-(defpoll uptime :interval "60s" "~/.config/eww/scripts/uptime_es.sh")
-(defpoll cover_url :interval "1s" "playerctl metadata mpris:artUrl | sed 's|file://||'")
-
+(defpoll fecha_es :interval "60s" "~/.config/scripts/eww/user_card/date.sh")
+(defpoll uptime :interval "60s" "~/.config/scripts/eww/user_card/uptime_es.sh")
 
 ; LISTENS
-(deflisten network :initial '{"essid": "lo", "signal": ""}' "~/.config/scripts/eww/network.sh")
-(deflisten volume :initial "0" "~/.config/scripts/eww/volume.sh")
-(deflisten mpris :initial "{\"name\":\"\",\"title\":\"-\",\"artist\":\"-\",\"artUrl\":\"\",\"status\":\"Stopped\",\"length\":\"0\",\"lengthStr\":\"00:00\"}" "~/.config/scripts/eww/mpris.sh")
-(deflisten mpris_positions :initial "{\"player\": {\"position\": 0, \"positionStr\": \"00:00\"}}"
-  "~/.config/scripts/eww/positions.sh")
+(deflisten volume :initial "0" "~/.config/scripts/eww/actions/volume.sh")
 
-(deflisten do-not-disturb :initial false "~/.config/scripts/eww/notifications.sh getdnd")
-(deflisten dark-mode :initial false "~/.config/scripts/eww/darkmode.sh getmode")
-(deflisten notifications :initial '{"count": 0, "notifications": [], "popups": []}' "~/.config/scripts/eww/notifications.sh current")
+(deflisten do-not-disturb :initial false "~/.config/scripts/eww/notifications/notifications.sh getdnd")
+(deflisten notifications :initial '{"count": 0, "notifications": [], "popups": []}' "~/.config/scripts/eww/notifications/notifications.sh current")
+(deflisten dark-mode :initial false "~/.config/scripts/eww/actions/darkmode.sh getmode")
+
+(defpoll music_pic :interval "2s" "~/.config/scripts/eww/music/songart.sh get")
+(defpoll music_url :interval "1s" "~/.config/scripts/eww/music/songart.sh echo")
+
+(defpoll music_title :interval "1s" "~/.config/scripts/eww/music/songdata.sh title")
+(defpoll music_artist :interval "1s" "~/.config/scripts/eww/music/songdata.sh artist")
+(defpoll music_status :interval "1s" "~/.config/scripts/eww/music/songdata.sh status")
+
+(defpoll music_duration :interval "1s" "~/.config/scripts/eww/music/songdata.sh duration")
+(defpoll music_player :interval "1s" "~/.config/scripts/eww/music/songdata.sh player")

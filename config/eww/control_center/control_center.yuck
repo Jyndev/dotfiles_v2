@@ -3,15 +3,11 @@
         (box :orientation "v" :space-evenly false
             (user)
             (music)
-            (notifications)
-            
+	        (charts)
+            (sysbuttons)
             (box :orientation "v" :space-evenly false :class "control-center"
-                
-                (quick_settings)
-                
                 (volume_control_center)
             )
         )
     )
-    
 )

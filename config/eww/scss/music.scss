@@ -1,60 +1,60 @@
-.music {
-    @include window;
-    border-radius: 7% 16%;
-}
+.musicbox {
+    margin: .4rem;
 
-.music-image {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    min-height: 6rem;
-    min-width: 6rem;
-    border-radius: 1rem;
-}
+	.pic-container {
+		background-color: rgba($surface_dim, 0.8);
+		border-radius: 1.2rem;
 
-.music-text {
-    margin-left: 1rem;
-}
+		.picbox {
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			min-height: 100px;
+			min-width: 370px;
+			border-radius: 1.2rem;
+			padding: 10px;
 
-.music-title {
-    font-size: 1.2rem;
-}
+            .left {
+                color: $on_surface_variant;
+                .title {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .artist {
+                    font-size: 1rem;
+                }
+                .duration {
+                    padding-top: 1.7rem;
+                }
+                .player {
+		        background-color: $inverse_primary;
+                border-radius: 10px;
+                padding: 0.2rem 0.4rem;
 
-.music-artist {
-    color: $on_surface_variant;
-}
+                    margin-top: 1.7rem;
+                }
+            }
+		}
 
-.music-name {
-    background-color: $primary;
-    color: $surface;
-    border-radius: 10px 24px 10px 24px;
-    padding: 0.25rem 0.8rem;
-    font-size: 1rem;
-}
+		// i've to make it hidden, so i'll translate it to the INFINITE! LMFAO
+		.hidden {
+			margin-top: -100px;
+		}
+	}
 
-.music-action {
-    font-size: 2rem;
-    min-width: 3rem;
-}
+	.musiccontrolsbox {
+		background-color: $inverse_primary;
+		border-radius: 20px;
+		padding: 0px 15px;
+		font-family: Iosevka Nerd Font;
 
-.music-scale {
-    margin-top: 1rem;
-}
+		.previousbutton,
+		.nextbutton {
+			font-size: 23px;
+		}
 
-.music-scale trough {
-    background-color: $on_background;
-    border-radius: 1rem;
-    min-height: 0.5rem;
-}
-
-
-.music-scale highlight {
-    background-color: $inverse_primary;
-    border-radius: 1rem;
-    min-height: 0.5rem;
-}
-
-.music-strtime {
-    color: $on_surface_variant;
-    margin-top: 0.25rem;
+		.pausebutton {
+			padding: 0px 10px 0px 4px;
+		}
+	}
 }

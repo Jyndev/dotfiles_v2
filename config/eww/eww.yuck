@@ -1,5 +1,4 @@
 (include "variables.yuck")
-(include "strings.yuck")
 
 (include "windows.yuck")
 
@@ -8,10 +7,8 @@
 
 (include "control_center/volume.yuck")
 (include "control_center/quick_settings.yuck")
-(include "control_center/notifications.yuck")
+(include "notification_panel/notifications.yuck")
 (include "control_center/music.yuck")
 (include "control_center/user.yuck")
+(include "control_center/charts.yuck")
 (include "power_center/powermenu.yuck")
-
-(include "centro_monitor/vars.yuck")
-(include "centro_monitor/dashboard.yuck")

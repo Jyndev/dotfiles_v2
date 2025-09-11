@@ -1,0 +1,70 @@
+* {
+	all: unset;
+	font-family: "Fredoka"
+}
+
+.chartsbox {
+    margin: .4rem;
+}
+
+.chart-container {
+	background-color: rgba($surface_container_low, .9);
+	border-radius: 12px;
+
+	.header {
+		padding: 5px 0px 0px 10px;
+		font-family: Product Sans;
+		font-size: 14px;
+		color: $inverse_surface;
+	}
+
+	.body .container {
+		padding: 5px;
+
+		.chart-container {
+			background-color: $surface_container_lowest;
+			border-radius: 3em;
+
+			.chart {
+				color: $inverse_primary;
+				background-color: rgba($surface_container_high, .8);
+
+				label {
+					padding: 1.5em;
+					font-size: 23px;
+				}
+			}
+
+			.chart-icon {
+				background-color: $surface_container_low;
+				border-radius: 3em;
+				padding: 10px 5px;
+
+				// nf alignment issues (again).
+				&.cpu {
+					font-size: 25px;
+					margin: 0.5em;
+					padding: 0px 10px 0px 0px;
+				}
+
+				&.ram {
+					font-size: 25px;
+					margin: 0.5em;
+					padding: 0px 3px 0px 0px;
+				}
+
+				&.temp {
+					font-size: 25px;
+					margin: 0.5em;
+					padding: 0px 10px 0px 0px;
+				}
+
+				&.disk {
+					font-size: 25px;
+					margin: 0.5em;
+					padding: 0px 0px 0px 0px;
+				}
+			}
+		}
+	}
+}

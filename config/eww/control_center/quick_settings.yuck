@@ -1,102 +1,76 @@
-(defwidget quick_settings []
-    
-    (box :orientation "v" :class "quick_settings_box" :space-evenly false
 
-        (box :orientation "h" :space-evenly true :class "title_settings_box"
-            (box :orientation "h" :space-evenly false :halign "start"
-                (label :class "title-quick-settings" :text " Acceso rápido")
-            )
-
-            (box :orientation "h" :space-evenly false :halign "end"
-                (label :class "user-clock-time" :text {formattime(EWW_TIME, "%I:%M %p")})
-                (label :class "user-clock-separator" :text "|")
-                (label :class "user-clock-date" :text {fecha_es})
-            )
+(defwidget sysblock [icon onclick active label]
+  (box :class "block-container"
+       :orientation "v"
+       :space-evenly false
+       :spacing 5
+    (button :class "block ${active ? 'active' : ''}" :onclick "${onclick}"
+      (box :orientation "h"
+           :space-evenly false
+        (box :class "iconbox"
+             :halign "start"
+             :space-evenly true
+             :orientation "h"
+          (label :text "${icon}" :class "icon")
         )
-
-
-
-
-        (box :orientation "h" :space-evenly true
-            (do-not-disturb_mode)
-            (screenshot)
+        (box :class "sepbox"
+             :halign "center"
+             :space-evenly true
+             :orientation "h"
+          (box :class "sep")
         )
-        (box :orientation "h" :space-evenly true
-            (theme)
-            (dark_mode)
+        (box :class "chevronbox"
+             :halign "end"
+             :space-evenly true
+             :orientation "h"
+          (label :text "")
         )
+      )
     )
+    (label :halign "center" :text "${label}" :class "label")
+  )
 )
 
-(defwidget quick_settings_button [condition action icon label class]
-(button
-  :onclick {action}
-  :class {
-    condition == "true" ? "quick_settings_button quick_settings_button_toggled ${class}"
-    : "quick_settings_button ${class}"
-  }
-        (box :orientation "h" :space-evenly false
-            (box :orientation "h" :space-evenly false :halign "start"
-                (label :class "quick-settings-icon" :text {icon})
-            )
-            (box :orientation "v" :class "quick-settings-info" :space-evenly false :halign "end" :valign "center"
-                (box :orientation "h" :space-evenly false :halign "start"
-                    (label :class "quick-settings-text" :text {label})
-                )
-                (box :orientation "h" :space-evenly false :halign "start"
-                   (label
-                    :class {
-                        condition == "true" ? "quick-settings-state quick-settings-state-enabled"
-                        : condition == "false" ? "quick-settings-state"
-                        : "quick-settings-state quick-settings-state-custom"
-                    }
-                    :text {
-                        condition == "true" ? "Activado"
-                        : condition == "false" ? "Desactivado"
-                        : condition
-                    }
-                    )
-                )
-            )
-        )
+(defwidget sysbuttons []
+  (box :class "sysbuttonsbox"
+       :orientation "v"
+       :space-evenly false
+       :spacing 20
+    (box :class "firstrow"
+         :orientation "h"
+         :space-evenly true
+      (box :halign "center"
+           :orientation "h"
+           :space-evenly true
+        (sysblock :icon "${do-not-disturb == 'true' ? '' : ''}"
+                  :onclick "~/.config/scripts/eww/notifications/notifications.sh togglednd"
+                  :active "${do-not-disturb == 'true' ? true : false}"
+                  :label "No molestar")
+      )
+      (box :halign "center"
+           :orientation "h"
+           :space-evenly true
+        (sysblock :icon "󰹑"
+                  :onclick "~/.config/scripts/eww/actions/control_center.sh --toggle &  ~/.config/scripts/eww/actions/screenshot.sh"
+                  :active "false"
+                  :label "Screenshot")
+      )
+      (box :halign "center"
+           :orientation "h"
+           :space-evenly true
+        (sysblock :icon ""
+                  :onclick "~/.config/scripts/wallpapers/change_wallpaper.sh --toggle & ~/.config/scripts/eww/control_center.sh --toggle"
+                  :active "false"
+                  :label "Colores")
+      )
+      (box :halign "center"
+           :orientation "h"
+           :space-evenly true
+        (sysblock :icon "${dark-mode == 'true' ? '' : '󰖨'}"
+                  :onclick "~/.config/scripts/eww/actions/darkmode.sh togglemode"
+                  :active "${dark-mode == 'true' ? true : false}"
+                  :label "Modo oscuro")
+      )
     )
-)
-
-
-
-(defwidget do-not-disturb_mode []
-    (quick_settings_button  :condition {do-not-disturb == true} 
-                            :action "~/.config/scripts/eww/notifications.sh togglednd & ~/.config/scripts/eww/control_center.sh --toggle"
-                            :icon "󰍷"
-                            :label "No molestar"
-                            :class "left-top-plite"
-                            ;; :class "left-top-plite" si es que quiero que se muestre en la parte inferior
-    )
-)
-
-(defwidget screenshot []
-    (quick_settings_button  :condition "Captura de pantalla"
-                            :action "~/.config/scripts/eww/control_center.sh --toggle &  ~/.config/scripts/eww/screenshot.sh"
-                            :icon "󰄀"
-                            :label "Screenshot"
-                            :class "right-top-plite"
-    )
-)
-
-(defwidget theme []
-    (quick_settings_button  :condition "Cambia fondo o colores" 
-                            :action "~/.config/scripts/wallpapers/change_wallpaper.sh --toggle & ~/.config/scripts/eww/control_center.sh --toggle"
-                            :icon ""
-                            :label "Temas"
-                            :class "left-bottom-plite"
-    )
-)
-
-(defwidget dark_mode []
-    (quick_settings_button  :condition {dark-mode == true}
-                            :action "~/.config/scripts/eww/darkmode.sh togglemode & ~/.config/scripts/eww/control_center.sh --toggle"
-                            :icon "󰔎"
-                            :label "Modo oscuro"
-                            :class "right-bottom-plite"
-    )
+  )
 )

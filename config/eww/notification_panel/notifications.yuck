@@ -1,0 +1,39 @@
+(defwidget notification [notify]
+    (box :orientation "v" :space-evenly false :hexpand true
+        (box :orientation "h" :space-evenly false :hexpand true :class "notification-info"
+            (box :class "notification-image"  :visible {notify.image != "null" ? true : false} :style "background-image: url('${notify.image}');")
+            (box :orientation "v" :space-evenly false :hexpand true
+                (box :orientation "h" :space-evenly false
+                    (label :halign "start" :class "notification-app" :visible {notify.app != "null" ? true :false} :text {notify.app})
+                    (button :hexpand true :halign "end" :class "notification-close" :onclick "~/.config/scripts/eww/notifications/notifications.sh close ${notify.id}" "󰅖")
+                )
+                (label :halign "start" :class "notification-summary" :visible {notify.summary != "null" ? true :false} :wrap true :markup {notify.summary})
+                (label :halign "start" :class "notification-body" :truncate true :visible {notify.body != "null" ? true :false} :wrap false  :markup {notify.body})
+            )
+        )
+        (box :orientation "h" :space-evenly false :class "notification-action-box"
+            
+        )
+    )
+)
+
+(defwidget notifications []
+    (revealer :transition "slideup" :reveal {show_panel_notifications} :duration {ANIM_DURATION}
+        (box :orientation "v" :space-evenly false :class "notifications-center"
+            (box :orientation "h" :space-evenly true
+                (label :class "notifications-header-text" :halign "start" :text "Notificaciones 󰂚")
+                (button :halign "end" :class "notifications-clear-button" :onclick "~/.config/scripts/eww/notifications/notifications.sh clear & ~/.config/scripts/eww/toggle_panels/notifications_panel.sh --toggle" "󰧧")
+            )
+            (scroll :vscroll true :class "notifications-scroll"
+                (box :orientation "v" :space-evenly false
+                    (for notify in {notifications.notifications}
+                        (box :orientation "h" :space-evenly false :class "notification-box"
+                            (notification :notify {notify})
+                        )   
+                    )
+                    (label :vexpand true :valign "center" :text "No hay notificaciones 󰊠" :visible {notifications.notifications != "[]" ? false : true})
+                )
+            )
+        )
+    )
+)
