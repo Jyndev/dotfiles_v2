@@ -1,0 +1,8 @@
+[config.wallpaper]
+command = ""
+arguments = []
+set = false
+
+[templates.iisddmtheme]
+input_path = './templates/SddmColors.qml'
+output_path = '/usr/local/etc/sddm/Colors.qml'

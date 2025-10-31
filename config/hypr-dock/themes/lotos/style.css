@@ -1,0 +1,45 @@
+window {
+  background-color: transparent;
+}
+
+#app {
+  background-color: rgba(42, 41, 49, 0.473);
+  border-radius: 12px;
+  padding: 5px;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 4px;
+  border-radius: 12px;
+  border: none;
+}
+
+#menu-item {
+  padding: 3px;
+  padding-left: 0;
+}
+
+menu {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-image: none;
+}
+
+menuitem {
+  padding: 3px 6px;
+}
+
+#pv-item {
+  background-color: rgba(42, 41, 49, 0.473);
+  transition: all .2s ease-out;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.062);
+}
+
+#pv-item.hover {
+  background-color: rgba(67, 66, 75, 0.301);
+
+
+}

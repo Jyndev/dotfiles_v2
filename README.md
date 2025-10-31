@@ -138,7 +138,7 @@ xdg-desktop-portal-hyprland xdg-desktop-portal-gtk ffmpeg ttf-nunito nemo-filero
 **AUR:**
 
 ```bash
-aur_install hyprshot visual-studio-code-bin mpvpaper eww matugen-bin ttf-fredoka-one
+aur_install hyprshot visual-studio-code-bin mpvpaper eww matugen-bin ttf-fredoka-one hypr-dock
 ```
 
 **Música:**
@@ -187,10 +187,21 @@ matugen image "ruta_a_la_imagen"
 
 ---
 
-## 🔒 Fondo dinámico en SDDM
+## 🔒 Tema SDDM
 
-1. Ubicación del tema actual:
-   `/usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds`
+> ⚠️ **Nota:** Todos los creditos y derechos a su respectivo autor: https://github.com/3d3f/ii-sddm-theme
+
+> Dependencias de `sddmii-sddm-theme`:
+
+```bash
+aur_install --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg otf-space-grotesk ttf-gabarito-git ttf-material-symbols-variable-git ttf-readex-pro ttf-rubik-vf
+```
+
+1. Copiar los archivos de `sddmii-sddm-theme` al directorio `/usr/share/sddm/themes/`
+
+```bash
+   sudo cp -r sddmii-sddm-theme /usr/share/sddm/themes/
+   ```
 
 2. Otorga permisos:
 
@@ -198,18 +209,19 @@ matugen image "ruta_a_la_imagen"
    sudo chmod 777 /usr/local/etc
    ```
 
-3. Crea directorio y enlace simbólico:
-
-   ```bash
+3. Crea directorio y enlaces simbólico:
+ ```bash
    mkdir -p /usr/local/etc/sddm
-   sudo ln -s /usr/local/etc/sddm/sddm_background \
-       /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/background
    ```
 
-4. Edita la config del tema (`theme.conf`):
+   ```bash
+   sudo ln -s /usr/local/etc/sddm/sddm_background \
+       /usr/share/sddm/themes/ii-sddm-theme/Backgrounds/background
+   ```
 
-   ```ini
-   Background="Backgrounds/background"
+   ```bash
+   sudo ln -s /usr/local/etc/sddm/sddm_config_colors \
+    /usr/share/sddm/themes/ii-sddm-theme/Components/Colors.qml
    ```
 
 5. Ejecuta el script de cambio de fondo.

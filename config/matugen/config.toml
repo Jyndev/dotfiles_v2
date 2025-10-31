@@ -19,3 +19,4 @@ output_path = '~/.cache/colors/rofi.rasi'
 [templates.kitty]
 input_path = './templates/kitty.conf'
 output_path = '~/.cache/colors/kitty.conf'
+

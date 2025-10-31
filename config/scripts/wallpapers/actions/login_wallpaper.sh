@@ -20,6 +20,10 @@ wallpaper_sddm() {
         cp $image "$dir" # Copia la imagen a la cache
 
         ln -sf "$dir/$name_image" "$dir/sddm_background"  # Crea un enlace simbolico
+
+        matugen image "$image" -c "/home/$USER/.config/matugen/config-sddm.toml" -t scheme-tonal-spot -m "$MATUGEN_MODE"
+        ln -sf "$dir/Colors.qml" "$dir/sddm_config_colors"  # Crea un enlace simbolico
+
         notify "Fondo de inicio de sesion cambiado exitosamente"
     else
         zenity --error --title="Error de configuracion" --text="Los archivos nesesarios para la ejecucion de esta tarea no estan configurados correctamente"
