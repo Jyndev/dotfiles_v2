@@ -1,0 +1,72 @@
+.wdate {
+  font-family: "Fredoka";
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: $primary_container;
+  margin-bottom: -20px;
+}
+
+.wday {
+  font-family: "Fredoka";
+  font-size: 4rem;
+  font-weight: bolder;
+  color: $surface_tint;
+  margin-bottom: 1px;
+}
+
+.welement {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $on_primary_fixed_variant;
+}
+
+.wicon {
+  border: 0px;
+  border-radius: 100%;
+  color: rgba($inverse_surface, 0.8);
+  font-size: 1.9rem;
+  padding: 2px 10px;
+  background-color: rgba(133, 121, 101, 0);  // Asegúrate de usar un color transparente válido
+  transition: background-color 0.3s ease, color 0.3s ease;  // Transición suave para el fondo y el color del texto
+
+  &:hover {
+    background-color: rgba($on_secondary_fixed, 0.3);  // Fondo suave al hacer hover
+    color: $inverse_surface
+
+  }
+}
+
+.ico-wall-color {
+  margin-right: 10px;
+}
+
+.ico-wall {
+  margin-right: 6px;
+}
+
+
+.wqicon {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $primary;
+}
+
+.wqtext {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: $primary;
+}
+
+.divider-wv {
+  min-width: 3px;
+  min-height: 10px;
+  margin-right: 22px;
+  background-color: rgba(#ffffff, 0.5);
+}
+
+.divider-wh {
+  min-height: 3px;
+  background-color: rgba(#ffffff, 0.5);
+}
+
+

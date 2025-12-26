@@ -1,0 +1,119 @@
+;; Variables 
+(defvar y true)
+(defpoll weather :interval "3h" `./bg-panel/scripts/weather.sh`)
+(defpoll date :interval "1h" `date --utc +'{"date":"%d %B, %Y","day":"%A"}'`)
+
+;; Función para obtener una frase aleatoria del archivo frases.txt
+(defpoll quote :interval "1h" `while true; do
+  # Selecciona una línea aleatoria del archivo
+  random_line=$(shuf -n 1 /home/jyndev/.config/eww/bg-panel/frases.txt);
+  
+  # Formatea la frase con saltos de línea cada 26 caracteres sin cortar palabras
+  formatted_text=$(echo "$random_line" | fold -s -w 35);
+  
+  # Si la frase tiene 70 caracteres o menos, la imprimimos
+  if [ \${#formatted_text} -le 70 ]; then
+    echo "$formatted_text";
+    break;
+  fi;
+done`)
+
+(defpoll pakages :interval "1h" `paquete_count=$(pacman -Q | wc -l); echo "$paquete_count"`)
+(defvar darkmode true)
+
+
+
+
+(defwindow bg-panel
+	:namespace		"bg-panel"
+	:monitor      	0
+	:stacking     	"bg"
+	:geometry     	(geometry
+						:anchor "top left"
+						:x "1%"
+						:y "3%"
+						:width  "50%"
+						:height "20%"
+					)
+    (widget)
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(defwidget widget []
+
+	(box :orientation "h" :space-evenly false :halign "start" :spacing 20
+
+		;; Iconos y botones de acciones del widget
+		(box :orientation "v" :space-evenly false :spacing 5
+
+			(eventbox :height 45 :width 45 :class "wicon":cursor "pointer" :onclick "~/.config/scripts/wallpaper/change_wallpaper.sh &" (label :class "ico-wall-color" :text "󰙴"))
+			(eventbox :height 45 :width 45 :class "wicon":cursor "pointer" :onclick "~/.config/scripts/wallpaper/only_wallpaper.sh &" (label :class "ico-wall" :text "󰸉"))
+			(eventbox :height 45 :width 45 :class "wicon":cursor "pointer" :onclick "~/.config/scripts/wallpaper/only_colors.sh &" (label  :class "ico-wall" :text ""))
+			(eventbox :height 45 :width 45 :class "wicon":cursor "pointer" :onclick "~/.config/scripts/wallpaper/sddm_wallpaper.sh &" (label  :class "ico-wall" :text "󱪱"))
+			(eventbox :height 45 :width 45 :class "wicon":cursor "pointer" :onclick "~/.config/scripts/wallpaper/theme_changer.sh &" (label  :class "ico-wall" :text "${darkmode ? '󱩎' : ''}"))
+
+		)
+
+		(box :orientation "v" :space-evenly false :spacing 10
+
+			(label :class "wdate" :xalign 0 :text "${date.date}") ;; Muestra la fecha actual
+			(label :class "wday" :xalign 0 :text "${date.day}") ;; Muestra el día de la semana actual
+
+			(box :orientation "h" :space-evenly false
+
+				(revealer :reveal y :transition "slideright"
+
+					;; Area para mostrar información del sistema
+					(box :orientation "v" :space-evenly false
+
+						(label :class "welement" :xalign 0 :text "() uptime		${uptime}")
+						(label :class "welement" :xalign 0 :text "() pakages							${pakages}")
+
+						;; Contenedor de frases aleatorias
+						(box :orientation "h" :style "margin-top: .2rem;" :spacing 15 :space-evenly false
+							(label :class "wqicon" :text "󰚢")
+							(box :orientation "v" :space-evenly false :style "margin-top: 1rem;"
+								(label :class "wqtext" :lines 3 :limit-width 31 :text "${quote}")
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)

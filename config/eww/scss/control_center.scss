@@ -3,3 +3,58 @@
         border-radius: 40px 18px 50px 10px;
 
 }
+
+
+.sysbuttonsbox {
+	@include window;
+	border-radius: 18px 40px 10px 57px;
+
+
+
+	.block-container {
+		.block {
+			background-color: $surface_container;
+			padding: 10px 15px;
+			border-radius: 5rem;
+			transition: all ease .2s;
+			color: $on_surface;
+
+			&:hover {
+				background-color: mix($surface_variant, $on_surface_variant, 70%);
+			}
+
+			&:active {
+				background-color: $on_primary_fixed_variant;
+			}
+
+			&.active {
+				background-color: $on_primary_fixed_variant;
+
+				&:hover {
+					background-color: mix($surface_variant, $on_surface_variant, 70%);
+				}
+
+				&:active {
+					background-color: $inverse_surface;
+				}
+
+				.sepbox .sep {
+					background-color: $inverse_surface;
+				}
+			}
+
+			.iconbox .icon {
+				font-family: Iosevka Nerd Font;
+                font-size: 1.3rem;
+                margin-right: .5rem;
+			}
+
+			
+		}
+
+		.label {
+			font-family: "Fredoka";
+			font-size: 14px;
+		}
+	}
+}

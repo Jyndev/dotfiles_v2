@@ -1,18 +1,14 @@
 (defwidget user []
     (box :orientation "h" :space-evenly true :class "user-box"
-    
         (box :orientation "h" :space-evenly false :halign "start"
             (box :orientation "h" :space-evenly false :class "user-image")
-                (box :orientation "v" :space-evenly false 
-                    (label :class "title-quick-settings" :halign "start" :text " Hola, ${rawuser} 󱁤")
-                    (label :class "title-uptime-settings" :text {uptime} :halign "start")
-                )
-        )
-
-        (box :orientation "h" :space-evenly false :halign "end"
             (button :class "open-powermenu-button" :onclick "~/.config/scripts/eww/power_menu/powermenu.sh &" "󰐥")
-            (button :class "open-server-button" :onclick "~/.config/scripts/server/server.sh &" "󰒍")
         )
-        
+        (box :orientation "h" :space-evenly false :halign "end"
+            (box :orientation "h" :space-evenly false
+                (label :class "user-clock-time" :text "Hola, ${rawuser} 󱁤")
+                
+            )
+        )
     )
 )

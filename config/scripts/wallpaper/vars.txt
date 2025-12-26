@@ -1,0 +1,2 @@
+METHOD=wallpaper
+WALLPAPER_URL=/home/jyndev/fondos/ml4.jpeg

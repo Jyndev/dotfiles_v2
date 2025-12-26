@@ -10,5 +10,7 @@
 (include "notification_panel/notifications.yuck")
 (include "control_center/music.yuck")
 (include "control_center/user.yuck")
+(include "control_center/alert_temp.yuck")
 (include "control_center/charts.yuck")
 (include "power_center/powermenu.yuck")
+(include "bg-panel/bg-panel.yuck")

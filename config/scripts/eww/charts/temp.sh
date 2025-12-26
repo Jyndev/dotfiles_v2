@@ -13,9 +13,4 @@ get_cpu_temperature() {
 
 temp=$(get_cpu_temperature)
 
-# Verificar temperatura y mostrar advertencia con Zenity si es >= 80°C
-if [[ "$temp" =~ ^[0-9]+$ && $temp -ge 59 ]]; then
-  zenity --warning --title="¡Alerta de temperatura!" \
-    --text="La temperatura del CPU ha alcanzado ${temp}°C. ¡Revisa la refrigeración!" &
-fi
 echo "${temp}"

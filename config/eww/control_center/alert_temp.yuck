@@ -1,0 +1,17 @@
+(defwidget alert_temp []
+	(revealer :transition "slideup" :reveal { temp > max_temp ? true : false } :duration {ANIM_DURATION}
+		(box :orientation "h" :space-evenly true :class "alert-box"
+    
+            (box :orientation "h" :space-evenly false :halign "start"
+                (box :orientation "h" :space-evenly false :class "alert-image")
+                    (box :orientation "v" :space-evenly false 
+                        (label :class "title-alert-temp " :halign "start" :text "¡Hey, ${rawuser}! 󰀦")
+                        (label :class "text-alert" :text "La temperatura del equipo es de ${temp}°C" :halign "start")
+                    )
+            )
+
+           
+            
+        )
+	)
+)

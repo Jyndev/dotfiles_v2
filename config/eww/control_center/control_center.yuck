@@ -1,11 +1,12 @@
 (defwidget control_center []
     (revealer :transition "slideup" :reveal {show_control_center} :duration {ANIM_DURATION}
         (box :orientation "v" :space-evenly false
-            (user)
             (music)
+            (alert_temp)
 	        (charts)
-            (sysbuttons)
             (box :orientation "v" :space-evenly false :class "control-center"
+                (user)
+                (quick_settings)
                 (volume_control_center)
             )
         )

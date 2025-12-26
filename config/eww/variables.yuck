@@ -13,6 +13,8 @@
 (defpoll cpu :interval "3s" "~/.config/scripts/eww/charts/cpu.sh")
 (defpoll ram :interval "3s" "~/.config/scripts/eww/charts/ram.sh ram")
 (defpoll temp :interval "3s" "~/.config/scripts/eww/charts/temp.sh get")
+(defvar max_temp 56)
+
 
 ; POLLS
 (defpoll fecha_es :interval "60s" "~/.config/scripts/eww/user_card/date.sh")

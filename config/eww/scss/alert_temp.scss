@@ -1,0 +1,25 @@
+.alert-box {
+    @include window;
+    background-color: rgba(229, 80, 57, .5);
+    border-radius: 14px 10px 25px 40px;
+}
+
+.title-alert-temp {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.text-alert {
+    color: $on_surface_variant;
+    font-size: 0.8rem;
+}
+
+.alert-image {
+    background-image: url("images/alta-temperatura.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 3rem;
+    min-width: 3rem;
+    border-radius: 100%;
+}
